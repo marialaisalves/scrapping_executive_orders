@@ -64,10 +64,6 @@ for (file in list.files(pattern = '*.html$')) {
   decretos <- bind_rows(decretos, temp_decretos)
 }
 rm(temp_decretos, webpage)
-# Quantos decrtos tem cada presidente no total nesse período?
-color <- decretos %>%
-  arrange(.$value) %>%
-  filter(year(ymd(value)) == 1990) %>% nrow
 
 # Construindo uma tabela mais informativa com os dados minerados
 decretos <- decretos %>%
@@ -210,3 +206,4 @@ decretos_plot %>%
   arrange(Mes) %>% 
   filter(nDecretos == max(nDecretos)) %>%
   select('Presidente', 'nDecretos', 'Mes', 'Ano')
+
